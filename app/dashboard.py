@@ -18,7 +18,7 @@ hours_selected = hours_lookup[time_window]
 cutoff = datetime.utcnow() - timedelta(hours=hours_selected)
 
 # Determine which score file to load
-score_file = f"../data/final/unrest_scores_{hours_selected}h.csv"
+score_file = f"data/final/unrest_scores_{hours_selected}h.csv"
 if not os.path.exists(score_file):
     st.error(f"⚠️ Score file not found: {score_file}\nPlease generate it locally and re-upload to the repo.")
     st.stop()
