@@ -1,6 +1,7 @@
 import praw
 import pandas as pd
 from datetime import datetime
+import os
 
 reddit = praw.Reddit(
     client_id=os.environ.get("REDDIT_CLIENT_ID"),
