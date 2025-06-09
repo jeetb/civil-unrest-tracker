@@ -31,8 +31,8 @@ if not os.path.exists(score_file):
 score_df = pd.read_csv(score_file).dropna(subset=['lat', 'lon'])
 
 # Load raw signals and filter by time
-reddit = pd.read_csv("data/processed/reddit_with_locations.csv")
-news = pd.read_csv("data/processed/news_with_locations.csv")
+reddit = pd.read_csv("../data/processed/reddit_with_locations.csv")
+news = pd.read_csv("../data/processed/news_with_locations.csv")
 signals = pd.concat([reddit, news], ignore_index=True)
 signals['date'] = pd.to_datetime(signals['date'], errors='coerce')
 signals['text'] = signals['text'].fillna('')
