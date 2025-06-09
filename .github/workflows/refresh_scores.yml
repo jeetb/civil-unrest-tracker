@@ -36,5 +36,7 @@ jobs:
         git config --global user.email "actions@github.com"
         git add data/final/unrest_scores_*.csv || echo "Nothing to add"
         git diff --cached --quiet && echo "No changes" || git commit -m "Auto-update unrest scores"
-        git push https://x-access-token:${PAT_TOKEN}@github.com/jeetb/civil-unrest-tracker.git HEAD:main
+        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/jeetb/civil-unrest-tracker.git
+        git push origin HEAD:main
+
 
