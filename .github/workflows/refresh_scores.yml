@@ -35,5 +35,3 @@ jobs:
         git add data/final/unrest_scores_*.csv
         git commit -m "Auto-update unrest scores" || echo "No changes to commit"
         git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/jeetb/civil-unrest-tracker.git HEAD:main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
