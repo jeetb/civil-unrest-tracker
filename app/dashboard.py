@@ -10,7 +10,6 @@ st.set_page_config(page_title="U.S. Civil Unrest Tracker", layout="wide")
 st.title("🗺️ U.S. Civil Unrest Tracker (MVP)")
 
 # Sidebar filters
-min_score = st.sidebar.slider("Minimum unrest score", 0, 100, 20)
 max_results = st.sidebar.slider("Max cities to show", 10, 100, 50)
 time_window = st.sidebar.selectbox("Time window", ["Last 24h", "Last 48h", "Last 7 days"])
 hours_lookup = {"Last 24h": 24, "Last 48h": 48, "Last 7 days": 168}
@@ -40,7 +39,7 @@ filtered_signals = signals[signals['date'] >= cutoff]
 
 
 # Filter cities by score
-filtered_scores = score_df[score_df['unrest_score'] >= min_score].head(max_results)
+filtered_scores = score_df.head(max_results)
 
 # Draw map
 m = folium.Map(location=[39.5, -98.35], zoom_start=4, tiles="cartodbpositron")
