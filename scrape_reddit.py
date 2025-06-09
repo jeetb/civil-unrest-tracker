@@ -3,8 +3,8 @@ import pandas as pd
 from datetime import datetime
 
 reddit = praw.Reddit(
-    client_id='rGMYCC8CmNRwdCC8H668rw',
-    client_secret='CgmXmfWLX5SqKbs_13dh_Ow4eg3K6w',
+    client_id=os.environ.get("REDDIT_CLIENT_ID"),
+    client_secret=os.environ.get("REDDIT_CLIENT_SECRET"),
     user_agent='civil_unrest_tracker'
 )
 
