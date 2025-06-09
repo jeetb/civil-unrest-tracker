@@ -38,7 +38,6 @@ jobs:
       env:
         REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
         REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-        REDDIT_USER_AGENT: civil_unrest_tracker
       run: python scrape_reddit.py
 
     - name: Scrape fresh News data
@@ -61,6 +60,3 @@ jobs:
         git add data/final/unrest_scores_*.csv || echo "Nothing to add"
         git commit -m "Auto-update unrest scores" || echo "Nothing to commit"
         git push origin HEAD:main
-
-
-
