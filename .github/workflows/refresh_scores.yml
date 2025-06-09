@@ -35,11 +35,11 @@ jobs:
       run: git pull origin main
 
     - name: Scrape fresh Reddit data
-      run: python scrape_reddit.py
       env:
         REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
         REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
         REDDIT_USER_AGENT: civil_unrest_tracker
+      run: python scrape_reddit.py
 
     - name: Scrape fresh News data
       run: python scrape_news.py
