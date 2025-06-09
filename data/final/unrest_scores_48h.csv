@@ -1,14 +1,13 @@
 city,state,lat,lon,signal_count,unrest_score
-Los Angeles,CA,34.1141,-118.4068,33,83.35
+Los Angeles,CA,34.1141,-118.4068,37,93.85
 Seattle,WA,47.6211,-122.3244,7,12.55
+Glendale,AZ,33.5791,-112.2311,2,5.4
 California,MD,38.2969,-76.4949,2,5.4
 Portland,OR,45.5371,-122.65,2,3.35
 Aventura,FL,25.9566,-80.1371,1,2.7
-San Francisco,CA,37.7558,-122.4449,1,2.7
-Glendale,AZ,33.5791,-112.2311,1,2.7
 Standing Rock,AL,33.0863,-85.2449,1,2.7
 Hollywood,FL,26.0293,-80.1679,1,2.7
-New York,NY,40.6943,-73.9249,1,2.1
 Chicago,IL,41.8375,-87.6866,1,2.1
 Temple,TX,31.1068,-97.3891,1,1.8
 Wallingford,IA,43.3203,-94.7922,1,1.8
+New York,NY,40.6943,-73.9249,1,1.05
