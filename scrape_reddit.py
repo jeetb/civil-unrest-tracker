@@ -6,7 +6,7 @@ import os
 reddit = praw.Reddit(
     client_id=os.environ.get("REDDIT_CLIENT_ID"),
     client_secret=os.environ.get("REDDIT_CLIENT_SECRET"),
-    user_agent='civil_unrest_tracker'
+    user_agent='civil_unrest_tracker:v1.0 (by u/can_only_comment_OK)'
 )
 
 subreddits = ['news', 'politics', 'nyc', 'Portland', 'LosAngeles', 'Chicago', 'Seattle', 'BlackLivesMatter']
