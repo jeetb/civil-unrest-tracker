@@ -7,7 +7,7 @@ import os
 
 # Setup
 st.set_page_config(page_title="U.S. Civil Unrest Tracker", layout="wide")
-st.title("🗺️ U.S. Civil Unrest Tracker (MVP)")
+st.title("U.S. Civil Unrest Tracker (MVP)")
 
 # Sidebar filters
 max_results = st.sidebar.slider("Max cities to show", 10, 100, 50)
