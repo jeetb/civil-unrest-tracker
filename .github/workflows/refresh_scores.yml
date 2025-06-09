@@ -20,13 +20,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install pandas
-
-    - name: Generate scores
-      run: |
-        python calculate_unrest_score.py --hours 24
-        python calculate_unrest_score.py --hours 48
-        python calculate_unrest_score.py --hours 168
+        pip install pandas feedparser spacy geotext praw
+        python -m spacy download en_core_web_sm
 
     - name: Set up SSH
       run: |
@@ -34,16 +29,37 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
         ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git remote set-url origin git@github.com:jeetb/civil-unrest-tracker.git
+
+    - name: Pull latest code
+      run: git pull origin main
+
+    - name: Scrape fresh Reddit data
+      run: python scrape_reddit.py
+      env:
+        REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+        REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+        REDDIT_USER_AGENT: civil_unrest_tracker
+
+    - name: Scrape fresh News data
+      run: python scrape_news.py
+
+    - name: Run location inference
+      run: python location_inference.py
+
+    - name: Generate unrest scores
+      run: |
+        python calculate_unrest_score.py --hours 24
+        python calculate_unrest_score.py --hours 48
+        python calculate_unrest_score.py --hours 168
 
     - name: Commit and push new score files
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git remote set-url origin git@github.com:jeetb/civil-unrest-tracker.git
         git add data/final/unrest_scores_*.csv || echo "Nothing to add"
         git commit -m "Auto-update unrest scores" || echo "Nothing to commit"
         git push origin HEAD:main
-
 
 
 
