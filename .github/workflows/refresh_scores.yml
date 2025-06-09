@@ -2,8 +2,8 @@ name: Refresh Unrest Scores
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # Runs every hour
-  workflow_dispatch:     # Allows manual trigger from GitHub UI
+    - cron: '0 */1 * * *'  # Every hour
+  workflow_dispatch:
 
 jobs:
   update-scores:
@@ -29,9 +29,12 @@ jobs:
         python calculate_unrest_score.py --hours 168
 
     - name: Commit and push new score files
+      env:
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add data/final/unrest_scores_*.csv
-        git commit -m "Auto-update unrest scores" || echo "No changes to commit"
-        git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/jeetb/civil-unrest-tracker.git HEAD:main
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add data/final/unrest_scores_*.csv || echo "Nothing to add"
+        git diff --cached --quiet && echo "No changes" || git commit -m "Auto-update unrest scores"
+        git push https://x-access-token:${PAT_TOKEN}@github.com/jeetb/civil-unrest-tracker.git HEAD:main
+
