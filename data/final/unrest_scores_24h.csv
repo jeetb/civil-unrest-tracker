@@ -1,6 +1,6 @@
 city,state,lat,lon,signal_count,unrest_score
-Los Angeles,CA,34.1141,-118.4068,29,78.1
-Seattle,WA,47.6211,-122.3244,2,4.8
+Los Angeles,CA,34.1141,-118.4068,29,75.4
+Seattle,WA,47.6211,-122.3244,2,7.5
 Aventura,FL,25.9566,-80.1371,1,2.7
 Glendale,AZ,33.5791,-112.2311,1,2.7
 San Francisco,CA,37.7558,-122.4449,1,2.7

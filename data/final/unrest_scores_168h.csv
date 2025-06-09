@@ -1,7 +1,7 @@
 city,state,lat,lon,signal_count,unrest_score
-Los Angeles,CA,34.1141,-118.4068,31,80.8
-Seattle,WA,47.6211,-122.3244,7,8.9
-Portland,OR,45.5371,-122.65,6,5.23
+Los Angeles,CA,34.1141,-118.4068,31,78.1
+Seattle,WA,47.6211,-122.3244,6,11.15
+Portland,OR,45.5371,-122.65,5,4.33
 Chicago,IL,41.8375,-87.6866,6,3.8
 New York,NY,40.6943,-73.9249,3,3.22
 Glendale,AZ,33.5791,-112.2311,1,2.7
