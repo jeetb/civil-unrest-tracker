@@ -1,0 +1,39 @@
+name: Refresh Unrest Scores
+
+on:
+  schedule:
+    - cron: '0 */1 * * *'  # Runs every hour
+  workflow_dispatch:     # Allows manual trigger from GitHub UI
+
+jobs:
+  update-scores:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install pandas
+
+    - name: Generate scores
+      run: |
+        python calculate_unrest_score.py --hours 24
+        python calculate_unrest_score.py --hours 48
+        python calculate_unrest_score.py --hours 168
+
+    - name: Commit and push new score files
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add data/final/unrest_scores_*.csv
+        git commit -m "Auto-update unrest scores"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
