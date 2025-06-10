@@ -5,7 +5,7 @@ import os
 
 client_id = os.environ.get("REDDIT_CLIENT_ID")
 client_secret = os.environ.get("REDDIT_CLIENT_SECRET")
-user_agent = "civil_unrest_tracker:v1.0 (by u/can_only_comment_OK)"  # Use your real or throwaway Reddit username
+user_agent = "civil_unrest_tracker_2:v1.0 (by u/can_only_comment_OK)"  # Use your real or throwaway Reddit username
 
 if not client_id or not client_secret:
     raise ValueError("Reddit credentials not found in environment variables")
