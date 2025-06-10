@@ -2,7 +2,7 @@ name: Refresh Unrest Scores
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # Every hour
+    - cron: '0 */6 * * *'  # Every 6 hours
   workflow_dispatch:
 
 jobs:
